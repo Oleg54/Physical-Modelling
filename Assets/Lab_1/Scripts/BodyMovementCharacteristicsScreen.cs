@@ -93,6 +93,12 @@ public class BodyMovementCharacteristicsScreen : UIScreen
 
     private void TaskButtonClick(TaskNumber taskNumber)
     {
+        if (_pauseButton.GetComponentInChildren<TMP_Text>(true).text == "Стоп")
+            OnPauseButtonClick();
+
+        foreach (TMP_InputField inputField in GetComponentsInChildren<TMP_InputField>(true))
+            inputField.text = "";
+
         foreach (TaskButton taskButton in _taskButtons)
             taskButton.SetViewActivity(taskButton.TaskNumber == taskNumber);
 
