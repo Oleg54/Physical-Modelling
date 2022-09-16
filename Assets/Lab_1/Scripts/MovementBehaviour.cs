@@ -6,6 +6,7 @@ public class MovementBehaviour : IMovementInfo
     private Vector3 _accelerate;
     private Vector3 _velocity;
     private Vector3 _commonOffcets;
+    private float _way;
 
     private float _moveTime;
 
@@ -14,7 +15,7 @@ public class MovementBehaviour : IMovementInfo
     public Vector2 Accelerate => _accelerate;
     public Vector2 Position => GetPosition();
     public float Time => _moveTime;
-    public float Way => _commonOffcets.magnitude;
+    public float Way => _way;
 
     public MovementBehaviour(Vector3 startPosition, Vector3 velocity, Vector3 accelerate)
     {
@@ -30,6 +31,7 @@ public class MovementBehaviour : IMovementInfo
         _moveTime += time;
 
         _commonOffcets += offcet;
+        _way += offcet.magnitude;
 
         return offcet;
     }

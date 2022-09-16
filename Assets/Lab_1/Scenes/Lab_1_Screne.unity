@@ -4717,8 +4717,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22c41902ad9af74478c64c6a2ba9760e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _movementBody: {fileID: 527882489}
   _tileSize: {x: 20, y: 10}
-  _backgroundSize: {x: 100, y: 200}
+  _backgroundSize: {x: 3, y: 3}
   _tile: {fileID: 1340234319868247831, guid: 458c222e121a63c4c93013fadd137593, type: 3}
 --- !u!4 &1101980193
 Transform:
