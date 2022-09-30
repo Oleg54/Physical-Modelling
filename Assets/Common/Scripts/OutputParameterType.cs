@@ -7,4 +7,9 @@
     Position = 25,
     Linear_Speed = 30,
     Angle = 35,
+
+    //lab3
+    Path_T2 = 100,
+    Speed_T3 = 110,
+    Accelerate_T3 = 120,
 }

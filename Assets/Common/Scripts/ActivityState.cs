@@ -2,4 +2,5 @@
 {
     Started,
     Stopped,
+    Paused,
 }

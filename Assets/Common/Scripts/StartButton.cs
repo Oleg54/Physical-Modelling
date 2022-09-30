@@ -19,11 +19,12 @@ public class StartButton : MonoBehaviour
         _button.onClick.AddListener(ButtonClick);
         
         ActivityState = ActivityState.Stopped;
+        RefreshText();
     }
 
     private void ButtonClick()
     {
-        ActivityState = ActivityState is ActivityState.Stopped ? ActivityState.Started : ActivityState.Stopped;
+        ActivityState = ActivityState is ActivityState.Started ? ActivityState.Stopped : ActivityState.Started;
         RefreshText();
 
         OnActivityChange.Invoke(this);
@@ -31,7 +32,7 @@ public class StartButton : MonoBehaviour
 
     private void RefreshText()
     {
-        _text.text = ActivityState is ActivityState.Stopped ? "Старт" : "Стоп";
+        _text.text = ActivityState is ActivityState.Started ? "Стоп" : "Старт";
     }
 
     public void SetState(ActivityState activityState)

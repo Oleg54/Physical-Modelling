@@ -1,12 +1,11 @@
 ﻿using System;
 using UnityEngine;
 
-public class AngularMovementBehaviour
+public class AngularMovementBehaviour : PhysicBehaviourBase
 {
     public readonly float RotationFrequency;
     public readonly float Radius;
 
-    public float Time { get; private set; }
     public float Angle => Time * RotationFrequency * 360f;
     public float TurnoversCount => RotationFrequency * Time;
     public float AngularVelocity => Time > 0 ? Angle / Time : 0;
@@ -20,12 +19,7 @@ public class AngularMovementBehaviour
         Radius = radius;
     }
 
-    public void Tick(float time)
-    {
-        Time += time;
-    }
-
-    public string GetParameter(OutputParameterType outputParameterType)
+    public override string GetParameter(OutputParameterType outputParameterType)
     {
         switch (outputParameterType)
         {
