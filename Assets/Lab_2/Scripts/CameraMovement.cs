@@ -11,9 +11,6 @@ public class CameraMovement : MonoBehaviour
 
     private void Update()
     {
-        //Vector3 position = transform.position;
-        //position.z = -Mathf.Max(10, _movementBody.transform.position.magnitude);
-        //transform.position = position;
-        Camera.main.orthographicSize = Mathf.Max(5, _movementBody.transform.position.magnitude);
+        Camera.main.orthographicSize = Mathf.Max(5, new Vector3(_movementBody.transform.position.x, 0, _movementBody.transform.position.z).magnitude);
     }
 }

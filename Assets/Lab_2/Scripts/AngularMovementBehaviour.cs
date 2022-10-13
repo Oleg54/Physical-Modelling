@@ -8,7 +8,7 @@ public class AngularMovementBehaviour : PhysicBehaviourBase
 
     public float Angle => Time * RotationFrequency * 360f;
     public float TurnoversCount => RotationFrequency * Time;
-    public float AngularVelocity => Time > 0 ? Angle / Time : 0;
+    public float AngularVelocity => Time > 0 ? Mathf.Deg2Rad * (Angle / Time) : 0;
     public Vector2 Position => new Vector2(Mathf.Sin(Angle * Mathf.Deg2Rad), Mathf.Cos(Angle * Mathf.Deg2Rad)) * Radius;
     public float Path => (Mathf.PI * 2f * Radius) * (Angle / 360f);
     public float LinearSpeed => Time > 0 ? Path / Time : 0;

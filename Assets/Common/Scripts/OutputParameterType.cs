@@ -12,4 +12,9 @@
     Path_T2 = 100,
     Speed_T3 = 110,
     Accelerate_T3 = 120,
+
+    //lab4
+    Lab4_Path = 200,
+    Lab4_Position_T1 = 210,
+    Lab4_Accelerate = 220,
 }

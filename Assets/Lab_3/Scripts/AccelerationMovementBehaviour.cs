@@ -11,7 +11,7 @@ public class AccelerationMovementBehaviour : PhysicBehaviourBase
     public readonly float T2;
     public readonly float T3;
 
-    public Vector2 CurrentAccelerate => new Vector2(AValue + BValue * Time, CValue + DValue * Time);
+    public Vector2 CurrentAccelerate => new Vector2(AValue + BValue * Mathf.Max(0, Time - T1), CValue + DValue * Mathf.Max(0, Time - T1));
     public Vector2 CurrentVelocity { get; private set; }
     public Vector2 Position { get; private set; }
     public float Path { get; private set; }

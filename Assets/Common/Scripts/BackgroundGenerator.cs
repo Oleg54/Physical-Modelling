@@ -5,6 +5,7 @@ public class BackgroundGenerator : MonoBehaviour
     [SerializeField] private MovementBody _movementBody;
     [SerializeField] private Vector2Int _tileSize;
     [SerializeField] private Vector2Int _backgroundSize;
+    [SerializeField] private float _zOffcet;
     [SerializeField] private GameObject _tile;
 
     private GameObject[][] _tiles;
@@ -51,7 +52,7 @@ public class BackgroundGenerator : MonoBehaviour
 
                 Vector2 targetTilePosition = roundedBodyPosition + (Vector2)realCenterOffcet;
 
-                _tiles[x][y].transform.position = targetTilePosition;
+                _tiles[x][y].transform.position = (Vector3)targetTilePosition + Vector3.forward * _zOffcet;
             }
         }
     }

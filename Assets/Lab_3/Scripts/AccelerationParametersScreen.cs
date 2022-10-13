@@ -25,7 +25,7 @@ public class AccelerationParametersScreen : ParametersScreenBase
         _movementBehaviour.Tick(Time.fixedDeltaTime);
         _movementBody.SetPosition(_movementBehaviour.Position);
 
-        if (_movementBehaviour.T3 > 0 && _movementBehaviour.Time >= _movementBehaviour.T3)
+        if (_movementBehaviour.T2 > 0 && _movementBehaviour.Time >= _movementBehaviour.T2)
         {
             _startButton.SetState(ActivityState.Stopped);
         }
