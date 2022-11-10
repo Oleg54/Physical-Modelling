@@ -17,4 +17,10 @@
     Lab4_Path = 200,
     Lab4_Position_T1 = 210,
     Lab4_Accelerate = 220,
+
+    //lab5
+    Lab5_Average_Speed = 300,
+    Lab5_Final_Speed = 310,
+    Lab5_Fly_Distance = 320,
+    Lab5_Path = 330,
 }

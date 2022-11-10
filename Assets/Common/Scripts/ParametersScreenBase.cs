@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Diagnostics.SymbolStore;
 using System.Linq;
 using UnityEngine;
 
@@ -17,6 +16,7 @@ public abstract class ParametersScreenBase : UIScreen
     protected abstract PhysicBehaviourBase _physicBehaviourBase { get; }
     protected ActivityState _activityState => _startButton.ActivityState;
 
+    public TaskNumber CurrentTaskNumber { get; private set; }
     public InoutParametersViewConfig Config => _config;
 
     private void Start()
@@ -62,6 +62,8 @@ public abstract class ParametersScreenBase : UIScreen
 
     private void SetTask(TaskNumber taskNumber)
     {
+        CurrentTaskNumber = taskNumber;
+
         InoutParametersData data = Config.InoutParametersData[taskNumber];
 
         foreach (TaskButton taskButton in _taskButtons)

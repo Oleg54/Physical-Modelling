@@ -14,3 +14,5 @@ public class CameraMovement : MonoBehaviour
         Camera.main.orthographicSize = Mathf.Max(5, new Vector3(_movementBody.transform.position.x, 0, _movementBody.transform.position.z).magnitude);
     }
 }
+
+

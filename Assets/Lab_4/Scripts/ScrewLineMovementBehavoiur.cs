@@ -47,18 +47,6 @@ public class ScrewLineMovementBehavoiur : PhysicBehaviourBase
 
         LinearSpeed += Accelerate * time;
 
-        //Vector3 position = Position;
-        //position.y += VerticalSpeed * time;
-
-        //Vector3 horizontalSpeedDirection = Vector3.Cross(-new Vector3(position.x, 0f, position.z), Vector3.up);
-
-        //position.x += horizontalSpeedDirection.x * AngularSpeed * time;
-        //position.z += horizontalSpeedDirection.z * AngularSpeed * time;
-
-
-        //Path += (Position - position).magnitude;
-        //Position = position;
-
         if (RealTime <= T1)
             Position_T1 = Position;
     }

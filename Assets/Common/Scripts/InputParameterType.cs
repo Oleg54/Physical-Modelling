@@ -22,4 +22,10 @@ public enum InputParameterType
     Lab4_Speed = 240,
     Lab4_Start_Acceleration = 250,
 
+    //lab5
+    Lab5_Height = 300,
+    Lab5_Start_Delay = 310,
+    Lab5_Start_Speed = 315,
+    Lab5_Acceleration = 320,
+    Lab5_Horizontal_Angle = 330,
 }
