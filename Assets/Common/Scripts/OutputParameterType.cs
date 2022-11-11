@@ -23,4 +23,9 @@
     Lab5_Final_Speed = 310,
     Lab5_Fly_Distance = 320,
     Lab5_Path = 330,
+
+    //lab6
+    Lab6_Speed_Body_1 = 400,
+    Lab6_Speed_Body_2 = 405,
+    Lab6_Time = 410,
 }

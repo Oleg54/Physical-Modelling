@@ -14,31 +14,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _inoutParametersData:
   - _taskNumber: 1
-    _inputParameterTypes: 0a0000000f000000
-    _outputParameters: 090000000a0000000f000000
+    _inputParameterTypes: a401000090010000c2010000
+    _outputParameters: 90010000950100009a010000
   - _taskNumber: 2
-    _inputParameterTypes: 0a0000000f000000
-    _outputParameters: 090000001400000023000000
+    _inputParameterTypes: a401000090010000c2010000
+    _outputParameters: 90010000950100009a010000
   - _taskNumber: 3
-    _inputParameterTypes: 0a0000000f000000
-    _outputParameters: 0900000023000000190000001e000000
+    _inputParameterTypes: a401000090010000ae010000c2010000
+    _outputParameters: 90010000950100009a010000
   _inputParametersViewData:
-  - _inputParameterType: 10
-    _parameterLabel: "\u0420\u0430\u0434\u0438\u0443\u0441"
-  - _inputParameterType: 15
-    _parameterLabel: "\u0427\u0430\u0441\u0442\u043E\u0442\u0430"
+  - _inputParameterType: 400
+    _parameterLabel: M1
+  - _inputParameterType: 410
+    _parameterLabel: M2
+  - _inputParameterType: 420
+    _parameterLabel: "\u0421\u043A\u043E\u0440\u043E\u0441\u0442\u044C 1"
+  - _inputParameterType: 430
+    _parameterLabel: "\u0421\u043A\u043E\u0440\u043E\u0441\u0442\u044C 2"
+  - _inputParameterType: 440
+    _parameterLabel: "\u0421\u0442\u043E\u043B\u043A\u043D\u043E\u0432\u0435\u043D\u0438\u0435
+      \u0446\u0435\u043D\u0442\u0440\u0430\u043B\u044C\u043D\u043E\u0435"
+  - _inputParameterType: 450
+    _parameterLabel: "\u041E\u0442\u043D\u043E\u0448\u0435\u043D\u0438\u0435 \u043C\u0430\u0441\u0441
+      (0 - m1 = m2, 1 - m1 << m2, 2 - m1 >> m2)"
   _outputParametersViewData:
-  - _outputParameterType: 9
+  - _outputParameterType: 400
+    _parameterLabel: "\u0421\u043A\u043E\u0440\u043E\u0441\u0442\u044C 1"
+  - _outputParameterType: 405
+    _parameterLabel: "\u0421\u043A\u043E\u0440\u043E\u0441\u0442\u044C 2"
+  - _outputParameterType: 410
     _parameterLabel: "\u0412\u0440\u0435\u043C\u044F"
-  - _outputParameterType: 10
-    _parameterLabel: "\u041A\u043E\u043B-\u0432\u043E \u043E\u0431\u043E\u0440\u043E\u0442\u043E\u0432"
-  - _outputParameterType: 15
-    _parameterLabel: "\u0423\u0433\u043B\u043E\u0432\u0430\u044F \u0441\u043A\u043E\u0440\u043E\u0441\u0442\u044C"
-  - _outputParameterType: 20
-    _parameterLabel: "\u041F\u0443\u0442\u044C"
-  - _outputParameterType: 25
-    _parameterLabel: "\u041A\u043E\u043E\u0440\u0434\u0438\u043D\u0430\u0442\u0430"
-  - _outputParameterType: 30
-    _parameterLabel: "\u041B\u0438\u043D\u0435\u0439\u043D\u0430\u044F \u0441\u043A\u043E\u0440\u043E\u0441\u0442\u044C"
-  - _outputParameterType: 35
-    _parameterLabel: "\u0423\u0433\u043E\u043B"

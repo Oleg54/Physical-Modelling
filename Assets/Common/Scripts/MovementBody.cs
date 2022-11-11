@@ -1,9 +1,14 @@
+using System;
 using UnityEngine;
 
 public class MovementBody : MonoBehaviour
 {
     private Vector3 _lastPosition;
     private Rigidbody _rigidbody;
+
+    public Rigidbody Rigidbody => _rigidbody;
+
+    public event Action<Collision> OnCollision;
 
     private void Awake()
     {
@@ -23,5 +28,10 @@ public class MovementBody : MonoBehaviour
         //    _rigidbody.rotation = Quaternion.LookRotation(direction, transform.up);
 
         _lastPosition = _rigidbody.position;
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        OnCollision?.Invoke(collision);
     }
 }
