@@ -52,22 +52,21 @@ public class ElasticImpactBehaviour : PhysicBehaviourBase
 
         _wasCollision = true;
 
-        Debug.Log(1);
+        float commonImpulse =
+            Body1.Rigidbody.mass * Body1.LastFrameVelocity.magnitude
+            + Body2.Rigidbody.mass * Body2.LastFrameVelocity.magnitude;
 
-        float commonImpulse = 
-            Body1.Rigidbody.mass * Body1.Rigidbody.velocity.magnitude
-            + Body2.Rigidbody.mass * Body2.Rigidbody.velocity.magnitude;
+        Vector3 direction1 = normal;
+        Vector3 direction2 = -normal;
 
-        Debug.Log(Body1.Rigidbody.velocity);
-        Debug.Log(Body2.Rigidbody.velocity);
+        if (!ImpactIsForward)
+        {
+            direction1 = (normal + Body1.LastFrameVelocity / 2).normalized;
+            direction2 = (-normal + Body2.LastFrameVelocity / 2).normalized;
+        }
 
-
-        Body1.Rigidbody.velocity = normal * (commonImpulse / 2 / Body1.Rigidbody.mass);
-        Body2.Rigidbody.velocity = -normal * (commonImpulse / 2 / Body2.Rigidbody.mass);
-        
-        Debug.Log(commonImpulse);
-        Debug.Log(Body1.Rigidbody.velocity);
-        Debug.Log(Body2.Rigidbody.velocity);
+        Body1.Rigidbody.velocity = direction1 * (commonImpulse / 2 / Body1.Rigidbody.mass);
+        Body2.Rigidbody.velocity = direction2 * (commonImpulse / 2 / Body2.Rigidbody.mass);
 
         Body1.Rigidbody.velocity = new Vector3(Body1.Rigidbody.velocity.x, Body1.Rigidbody.velocity.y, 0f);
         Body2.Rigidbody.velocity = new Vector3(Body2.Rigidbody.velocity.x, Body2.Rigidbody.velocity.y, 0f);

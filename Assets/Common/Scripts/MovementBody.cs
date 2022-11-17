@@ -7,6 +7,7 @@ public class MovementBody : MonoBehaviour
     private Rigidbody _rigidbody;
 
     public Rigidbody Rigidbody => _rigidbody;
+    public Vector3 LastFrameVelocity { get; private set; }
 
     public event Action<Collision> OnCollision;
 
@@ -22,12 +23,13 @@ public class MovementBody : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Vector3 direction = (_rigidbody.position - _lastPosition).normalized;
+        //Vector3 direction = (_rigidbody.position - _lastPosition).normalized;
 
         //if (direction.magnitude > 0.1f)
         //    _rigidbody.rotation = Quaternion.LookRotation(direction, transform.up);
 
         _lastPosition = _rigidbody.position;
+        LastFrameVelocity = Rigidbody.velocity;
     }
 
     private void OnCollisionEnter(Collision collision)

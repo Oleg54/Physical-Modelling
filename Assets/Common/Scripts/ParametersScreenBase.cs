@@ -75,8 +75,11 @@ public abstract class ParametersScreenBase : UIScreen
         foreach (OutputParameter outputParameter in _outputParameters)
             outputParameter.gameObject.SetActive(data.OutputParameterTypes.Contains(outputParameter.OutputParameterType));
 
+        OnTaskSet(taskNumber);
         NullifyAll();
     }
+
+    protected virtual void OnTaskSet(TaskNumber taskNumber) { }
 
     private void NullifyAll()
     {

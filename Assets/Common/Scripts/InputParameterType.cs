@@ -36,4 +36,8 @@ public enum InputParameterType
     Lab6_Speed_2 = 430,
     Lab6_Impact_Is_Forward = 440,
     Lab6_Relatice_Mass_Type = 450,
+
+    //lab7
+    Lab7_Start_Speed = 500,
+    Lab7_Horizontal_Angle = 510,
 }
