@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class Lab7Behaviour : PhysicBehaviourBase
+public class Lab6_2Behaviour : PhysicBehaviourBase
 {
     public readonly MovementBody Body;
     public readonly float Speed;
 
-    public Lab7Behaviour(MovementBody body, float speed, float horizontalAngle)
+    public Lab6_2Behaviour(MovementBody body, float speed, float horizontalAngle)
     {
         Body = body;
         Speed = speed;

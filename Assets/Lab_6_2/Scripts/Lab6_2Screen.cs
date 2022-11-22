@@ -1,13 +1,13 @@
 ﻿using System;
 using UnityEngine;
 
-public class Lab7Screen : ParametersScreenBase
+public class Lab6_2Screen : ParametersScreenBase
 {
     [SerializeField] private LevelPreset[] _presets;
 
     private LevelPreset _currentLevelPreset;
 
-    private Lab7Behaviour _behaviour;
+    private Lab6_2Behaviour _behaviour;
 
     protected override PhysicBehaviourBase _physicBehaviourBase => _behaviour;
 
@@ -37,10 +37,10 @@ public class Lab7Screen : ParametersScreenBase
 
     protected override void UpdatePhysicBehaviour()
     {
-        _behaviour = new Lab7Behaviour(
+        _behaviour = new Lab6_2Behaviour(
             _movementBody,
-            FindInputParameter(InputParameterType.Lab7_Start_Speed),
-            FindInputParameter(InputParameterType.Lab7_Horizontal_Angle));
+            FindInputParameter(InputParameterType.Lab6_2_Start_Speed),
+            FindInputParameter(InputParameterType.Lab6_2_Horizontal_Angle));
     }
 
     private void FixedUpdate()

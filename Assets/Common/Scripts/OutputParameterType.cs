@@ -29,4 +29,8 @@
     Lab6_Speed_Body_2 = 405,
     Lab6_Time = 410,
 
+    //lab7
+    Lab7_Time = 500,
+    Lab7_Speed = 510,
+    Lab7_Current_F = 520,
 }

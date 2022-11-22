@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 
+[DefaultExecutionOrder(-100)]
 public class MovementBody : MonoBehaviour
 {
     private Vector3 _lastPosition;

@@ -33,11 +33,16 @@ public abstract class ParametersScreenBase : UIScreen
         foreach (TaskButton taskButton in _taskButtons)
             taskButton.OnButtonClick += SetTask;
 
+        foreach (InputParameter inputParameter in _inputParameters)
+            inputParameter.OnParameterChange += OnInputParameterChange;
+
         SetTask(TaskNumber.Number_1);
         InitCallback();
     }
 
     protected virtual void InitCallback() { }
+
+    protected virtual void OnInputParameterChange(InputParameter inputParameter) { }
 
     private void OnStartButtonClick(StartButton startButton)
     {
