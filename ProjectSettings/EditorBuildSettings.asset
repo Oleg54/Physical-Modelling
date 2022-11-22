@@ -14,10 +14,13 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Lab_5/Scenes/Lab_5.unity
     guid: ab74ff260b607cf458294c84e5980755
-  - enabled: 1
+  - enabled: 0
     path: Assets/Lab_6/Scenes/Lab_6.unity
     guid: 1305537ac9efe2d4ba08ca051c39bb91
   - enabled: 0
     path: Assets/Lab_6_2/Scenes/Lab_6_2.unity
     guid: 596d5d7b60f440d42978b8e3041c5a3e
+  - enabled: 1
+    path: Assets/Lab_7/Scenes/Lab_7.unity
+    guid: 1cd5e5e8b5c115c4f80ae10fc2cad0b7
   m_configObjects: {}

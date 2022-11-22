@@ -32,7 +32,7 @@ public class Lab7Behaviour : PhysicBehaviourBase
 
         Body.Rigidbody.AddForce(Body.Rigidbody.mass * 9.81f * Vector3.down, ForceMode.Force);
 
-        if (Physics.Raycast(Body.Rigidbody.position, Vector3.down + Vector3.left * 0.2f, out RaycastHit hit))
+        if (Physics.Raycast(Body.Rigidbody.position, Vector3.down + Vector3.left * 0.075f, out RaycastHit hit))
         {
             Body.Rigidbody.rotation = 
                 Quaternion.Slerp(Body.Rigidbody.rotation, 

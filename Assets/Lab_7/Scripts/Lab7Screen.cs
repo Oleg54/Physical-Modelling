@@ -33,7 +33,7 @@ public class Lab7Screen : ParametersScreenBase
 
     private void UpdateAngle()
     {
-        if (/*CurrentTaskNumber is TaskNumber.Number_1 ||*/ CurrentTaskNumber is TaskNumber.Number_2)
+        if (CurrentTaskNumber is TaskNumber.Number_2)
         {
             float angle = Mathf.Clamp(FindInputParameter(InputParameterType.Lab7_Surface_Angle), 0f, 89f);
             float rotatedSurfaceWidth = _currentSurfaces[SurfaceType.Surface_2].transform.localScale.x;
@@ -51,11 +51,6 @@ public class Lab7Screen : ParametersScreenBase
 
                 _currentSurfaces[SurfaceType.Surface_1].transform.position = secondPoint
                     + Vector3.right * _currentSurfaces[SurfaceType.Surface_1].transform.localScale.x / 2f;
-
-            _movementBody.Rigidbody.position = _currentSurfaces[SurfaceType.Surface_1].transform.position
-                + Vector3.up * 0.5f
-                + Vector3.left *
-                (CurrentTaskNumber is TaskNumber.Number_1 ? 3f : _currentSurfaces[SurfaceType.Surface_1].transform.localScale.x / 2f + 0.5f);
         }
         else if (CurrentTaskNumber is TaskNumber.Number_3)
         {
@@ -79,6 +74,16 @@ public class Lab7Screen : ParametersScreenBase
             _movementBody.Rigidbody.position = _currentSurfaces[SurfaceType.Surface_1].transform.position
                 + Vector3.up * 0.6f
                 + Vector3.right * 2.5f;
+        }
+
+        if (CurrentTaskNumber is TaskNumber.Number_1 || CurrentTaskNumber is TaskNumber.Number_2)
+        {
+            Vector3 position = _currentSurfaces[SurfaceType.Surface_1].transform.position
+                + Vector3.up * 0.5f
+                + Vector3.left *
+                (CurrentTaskNumber is TaskNumber.Number_1 ? 3f : _currentSurfaces[SurfaceType.Surface_1].transform.localScale.x / 2f + 0.5f);
+            _movementBody.transform.position = position;
+            _movementBody.Rigidbody.position = position;
         }
 
         _movementBody.Rigidbody.rotation = Quaternion.LookRotation(Vector3.left);
