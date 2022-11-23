@@ -51,4 +51,11 @@ public enum InputParameterType
     Lab7_A = 640,
     Lab7_Surface_Angle = 650,
     Lab7_Start_Speed = 660,
+
+    //lab8_1
+    Lab8_1_Angle = 700,
+    Lab8_1_Refraction_Factor_1 = 710,
+    Lab8_1_Refraction_Factor_2 = 715,
+    Lab8_1_S_1 = 720,
+    Lab8_1_S_2 = 725,
 }

@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f8092b29579092488b7318b4b6edb48, type: 3}
+  m_Name: InoutParametersViewConfig
+  m_EditorClassIdentifier: 
+  _inoutParametersData:
+  - _taskNumber: 1
+    _inputParameterTypes: bc020000c6020000d0020000
+    _outputParameters: 
+  - _taskNumber: 2
+    _inputParameterTypes: bc020000c6020000d0020000cb020000d5020000
+    _outputParameters: 
+  - _taskNumber: 3
+    _inputParameterTypes: bc020000c6020000
+    _outputParameters: 
+  _inputParametersViewData:
+  - _inputParameterType: 700
+    _parameterLabel: "\u0423\u0433\u043E\u043B"
+  - _inputParameterType: 710
+    _parameterLabel: N 1
+  - _inputParameterType: 715
+    _parameterLabel: N 2
+  - _inputParameterType: 720
+    _parameterLabel: S 1
+  - _inputParameterType: 725
+    _parameterLabel: S 2
+  _outputParametersViewData: []
