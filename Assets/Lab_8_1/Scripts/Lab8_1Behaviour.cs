@@ -1,13 +1,12 @@
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net.NetworkInformation;
 using UnityEngine;
 
 public class Lab8_1Behaviour : PhysicBehaviourBase
 {
     public readonly LineRenderer Line;
     public float Angle { get; private set; }
+
+    private Vector3 _lastNormal;
 
     public Lab8_1Behaviour(LineRenderer lineRenderer, float angle)
     {
@@ -23,35 +22,41 @@ public class Lab8_1Behaviour : PhysicBehaviourBase
         Vector3 origin = new Vector3(0f, 2.75f, 0f);
 
         List<Vector3> points = new List<Vector3>();
-        ThrowRay(origin, 1f, angle, ref points);
+        ThrowRay(origin, 1f, Quaternion.Euler(0f, 0f, angle) * Vector3.down, ref points);
 
         Line.positionCount = points.Count;
         Line.SetPositions(points.ToArray());
     }
 
-    private void ThrowRay(Vector3 origin, float originRefractionFactor, float originAngle, ref List<Vector3> points)
+    private void ThrowRay(Vector3 origin, float originRefractionFactor, Vector3 direction, ref List<Vector3> points)
     {
         points.Add(origin);
-
-        Vector3 direction = Quaternion.Euler(0f, 0f, originAngle) * Vector3.down;
 
         if (Physics.Raycast(origin, direction, out RaycastHit hit)
             && hit.transform.TryGetComponent(out RefractionSurface surface))
         {
-            float internalNextAngle = CalculateNextAngle(originAngle, originRefractionFactor, surface.RefractionFactor);
+            float internalNextAngle = 
+                CalculateNextAngle(Vector3.SignedAngle(-direction, hit.normal, Vector3.forward), originRefractionFactor, surface.RefractionFactor);
+
             points.Add(hit.point);
             Vector3 firstNextOrigin = hit.point;
-            Vector3 firstNextDirection = Quaternion.Euler(0f, 0f, internalNextAngle) * Vector3.down;
+            Vector3 firstNextDirection = 
+                Quaternion.Euler(0f, 0f, -internalNextAngle) * -hit.normal;
+
             RaycastHit reverseHit = Physics.RaycastAll(firstNextOrigin + firstNextDirection * 100f, -firstNextDirection)
                 .Find(h => h.transform == hit.transform);
 
             Vector3 outOrigin = reverseHit.point;
-            ThrowRay(outOrigin + Vector3.up * 0.05f, surface.RefractionFactor, internalNextAngle, ref points);
+
+            _lastNormal = reverseHit.normal;
+            ThrowRay(outOrigin + Vector3.up * 0.05f, surface.RefractionFactor, firstNextDirection, ref points);
         }
         else
         {
-            float internalNextAngle = CalculateNextAngle(originAngle, originRefractionFactor, 1f);
-            Vector3 firstNextDirection = Quaternion.Euler(0f, 0f, internalNextAngle) * Vector3.down;
+            float internalNextAngle =
+                CalculateNextAngle(Vector3.SignedAngle(-direction, -_lastNormal, Vector3.forward), originRefractionFactor, 1f);
+
+            Vector3 firstNextDirection = Quaternion.Euler(0f, 0f, -internalNextAngle) * _lastNormal;
             points.Add(origin + firstNextDirection * 1000f);
         }
     }

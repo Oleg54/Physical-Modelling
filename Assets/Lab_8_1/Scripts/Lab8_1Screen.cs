@@ -17,6 +17,12 @@ public class Lab8_1Screen : ParametersScreenBase
         UpdatePhysicBehaviour();
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyUp(KeyCode.J))
+            _behaviour.RecalculateRay(FindInputParameter(InputParameterType.Lab8_1_Angle));
+    }
+
     protected override void UpdatePhysicBehaviour()
     {
         _behaviour = new Lab8_1Behaviour(
@@ -45,25 +51,36 @@ public class Lab8_1Screen : ParametersScreenBase
 
     private void Refresh()
     {
-        if (CurrentTaskNumber != TaskNumber.Number_3)
+        RefractionSurface[] surfaces = _currentLevelPreset.GetComponentsInChildren<RefractionSurface>(true);
+
+        if (surfaces.Length > 0)
         {
-            RefractionSurface[] surfaces = _currentLevelPreset.GetComponentsInChildren<RefractionSurface>(true);
+            surfaces[0].SetRefractionFactor(FindInputParameter(InputParameterType.Lab8_1_Refraction_Factor_1));
 
-            if (surfaces.Length > 0)
+            if (CurrentTaskNumber != TaskNumber.Number_3)
             {
-                surfaces[0].SetRefractionFactor(FindInputParameter(InputParameterType.Lab8_1_Refraction_Factor_1));
-
                 float s = FindInputParameter(InputParameterType.Lab8_1_S_1);
+
+                if (s < 0.01f)
+                    s = 1f;
+
                 surfaces[0].transform.Translate(Vector3.up * surfaces[0].transform.localScale.y / 2f);
                 surfaces[0].transform.Translate(Vector3.down * s / 2f);
                 surfaces[0].transform.localScale = surfaces[0].transform.localScale.SetY(s);
             }
+        }
 
-            if (surfaces.Length > 1)
+        if (surfaces.Length > 1)
+        {
+            surfaces[1].SetRefractionFactor(FindInputParameter(InputParameterType.Lab8_1_Refraction_Factor_2));
+
+            if (CurrentTaskNumber != TaskNumber.Number_3)
             {
-                surfaces[1].SetRefractionFactor(FindInputParameter(InputParameterType.Lab8_1_Refraction_Factor_2));
-
                 float s = FindInputParameter(InputParameterType.Lab8_1_S_2);
+                
+                if (s < 0.01f)
+                    s = 1f;
+
                 surfaces[1].transform.localScale = surfaces[1].transform.localScale.SetY(s);
                 surfaces[1].transform.position = surfaces[0].transform.position
                     - Vector3.up * (surfaces[0].transform.localScale.y + surfaces[1].transform.localScale.y) / 2f;
