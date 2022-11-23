@@ -23,7 +23,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Lab_7/Scenes/Lab_7.unity
     guid: 1cd5e5e8b5c115c4f80ae10fc2cad0b7
-  - enabled: 1
+  - enabled: 0
     path: Assets/Lab_8_1/Scenes/Lab_8_1.unity
     guid: 5cbf04993a47a1b44a93564a595775ce
+  - enabled: 1
+    path: Assets/Lab_8_2/Scenes/Lab_8_2.unity
+    guid: ec3461669c5b3ed469a99731d9a391e8
   m_configObjects: {}

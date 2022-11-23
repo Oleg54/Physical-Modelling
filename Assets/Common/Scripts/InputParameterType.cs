@@ -58,4 +58,13 @@ public enum InputParameterType
     Lab8_1_Refraction_Factor_2 = 715,
     Lab8_1_S_1 = 720,
     Lab8_1_S_2 = 725,
+
+    //lab8_2
+    Lab8_2_Angle = 800,
+    Lab8_2_Refraction_Factor_1 = 810,
+    Lab8_2_Refraction_Factor_2 = 815,
+    Lab8_2_S_1 = 820,
+    Lab8_2_S_2 = 825,
+    Lab8_2_Lense_Type_1 = 830,
+    Lab8_2_Lense_Type_2 = 835,
 }

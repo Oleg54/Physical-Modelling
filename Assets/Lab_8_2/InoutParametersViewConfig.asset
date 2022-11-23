@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f8092b29579092488b7318b4b6edb48, type: 3}
+  m_Name: InoutParametersViewConfig
+  m_EditorClassIdentifier: 
+  _inoutParametersData:
+  - _taskNumber: 1
+    _inputParameterTypes: 20030000
+    _outputParameters: 
+  - _taskNumber: 2
+    _inputParameterTypes: 200300002a0300002f03000034030000390300003e03000043030000
+    _outputParameters: 
+  _inputParametersViewData:
+  - _inputParameterType: 800
+    _parameterLabel: "\u0423\u0433\u043E\u043B"
+  - _inputParameterType: 810
+    _parameterLabel: "N \u041B\u0438\u043D\u0437\u044B 1"
+  - _inputParameterType: 815
+    _parameterLabel: "N \u041B\u0438\u043D\u0437\u044B 2"
+  - _inputParameterType: 820
+    _parameterLabel: S 1
+  - _inputParameterType: 825
+    _parameterLabel: S 2
+  - _inputParameterType: 830
+    _parameterLabel: "\u0422\u0438\u043F \u043B\u0438\u043D\u0437\u044B 1"
+  - _inputParameterType: 835
+    _parameterLabel: "\u0422\u0438\u043F \u043B\u0438\u043D\u0437\u044B 2"
+  _outputParametersViewData: []
