@@ -17,12 +17,6 @@ public class Lab8_1Screen : ParametersScreenBase
         UpdatePhysicBehaviour();
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyUp(KeyCode.J))
-            _behaviour.RecalculateRay(FindInputParameter(InputParameterType.Lab8_1_Angle));
-    }
-
     protected override void UpdatePhysicBehaviour()
     {
         _behaviour = new Lab8_1Behaviour(
@@ -40,12 +34,6 @@ public class Lab8_1Screen : ParametersScreenBase
 
     protected override void OnInputParameterChange(InputParameter inputParameter)
     {
-        if (inputParameter.InputParameterType is InputParameterType.Lab8_1_Angle)
-        {
-            float angle = FindInputParameter(InputParameterType.Lab8_1_Angle);
-            _behaviour?.RecalculateRay(angle);
-        }
-
         Refresh();
     }
 
@@ -98,6 +86,6 @@ public class Lab8_1Screen : ParametersScreenBase
 
     private void FixedUpdate()
     {
-
+        _behaviour?.RecalculateRay(FindInputParameter(InputParameterType.Lab8_1_Angle));
     }
 }
