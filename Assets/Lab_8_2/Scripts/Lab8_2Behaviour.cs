@@ -60,10 +60,19 @@ public class Lab8_2Behaviour : PhysicBehaviourBase
                 else
                 {
                     float a1 = Vector3.SignedAngle(-firstNextDirection, -reverseHit.normal, Vector3.forward);
-                    float a = CalculateNextAngle(a1, surface.RefractionFactor, 1f);
-                    Vector3 d = Quaternion.Euler(0f, 0f, -a) * _lastNormal;
 
-                    ThrowRay(outOrigin - reverseHit.normal * 0.05f, 1f, d, ref points);
+                    if (RefractedAngleIsNotReflected(a1, surface.RefractionFactor, 1f))
+                    {
+                        float a = CalculateNextAngle(a1, surface.RefractionFactor, 1f);
+                        Vector3 d = Quaternion.Euler(0f, 0f, -a) * _lastNormal;
+
+                        ThrowRay(outOrigin - reverseHit.normal * 0.05f, 1f, d, ref points);
+                    }
+                    else
+                    {
+                        ThrowRay(outOrigin - reverseHit.normal * 0.05f, 1f, 
+                            Vector3.Reflect(firstNextDirection, -reverseHit.normal), ref points);
+                    }
                 }
             }
             else
