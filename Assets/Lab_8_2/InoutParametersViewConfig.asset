@@ -17,7 +17,7 @@ MonoBehaviour:
     _inputParameterTypes: 20030000
     _outputParameters: 
   - _taskNumber: 2
-    _inputParameterTypes: 200300002a0300002f03000034030000390300003e03000043030000
+    _inputParameterTypes: 200300002a0300002f0300003e03000043030000
     _outputParameters: 
   _inputParametersViewData:
   - _inputParameterType: 800

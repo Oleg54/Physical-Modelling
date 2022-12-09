@@ -146,6 +146,16 @@ public class Lab7Screen : ParametersScreenBase
 
     private void FixedUpdate()
     {
+        if (_activityState is ActivityState.Started && CurrentTaskNumber is TaskNumber.Number_1)
+        {
+            if (FindInputParameter(InputParameterType.Lab7_Mass) 
+                * FindInputParameter(InputParameterType.Lab7_Friction1) * 9.81f < _behaviour.CurrentF)
+                _movementBody.Rigidbody.velocity = Vector3.left;
+            else
+                _movementBody.Rigidbody.velocity = Vector3.zero;
+
+        }
+
         if (_activityState != ActivityState.Started)
         {
             _movementBody.Rigidbody.velocity = Vector3.zero;

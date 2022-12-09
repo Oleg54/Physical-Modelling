@@ -7,11 +7,13 @@ public class Lab8_2Behaviour : PhysicBehaviourBase
     public float Angle { get; private set; }
 
     private Vector3 _lastNormal;
+    private FinalPoint _finalPoint;
 
     public Lab8_2Behaviour(LineRenderer lineRenderer, float angle)
     {
         Line = lineRenderer;
         Angle = angle;
+        _finalPoint = GameObject.FindObjectOfType<FinalPoint>();
         RecalculateRay(angle);
     }
 
@@ -35,7 +37,12 @@ public class Lab8_2Behaviour : PhysicBehaviourBase
 
         points.Add(origin);
 
-        if (Physics.Raycast(origin, direction, out RaycastHit hit)
+        if (Physics.Raycast(origin, direction, out RaycastHit hit1, 500, 1 << 4))
+            _finalPoint.SetPointColor(Color.green);
+        else
+            _finalPoint.SetPointColor(Color.red);
+
+        if (Physics.Raycast(origin, direction, out RaycastHit hit, 500, 1)
             && hit.transform.TryGetComponent(out RefractionSurface surface))
         {
             if (!surface.IsMirror)
