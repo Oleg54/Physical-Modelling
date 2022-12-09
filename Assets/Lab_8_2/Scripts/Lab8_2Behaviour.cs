@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.UI.Image;
 
 public class Lab8_2Behaviour : PhysicBehaviourBase
 {
@@ -7,13 +8,13 @@ public class Lab8_2Behaviour : PhysicBehaviourBase
     public float Angle { get; private set; }
 
     private Vector3 _lastNormal;
-    private FinalPoint _finalPoint;
+    private Point _finalPoint;
 
     public Lab8_2Behaviour(LineRenderer lineRenderer, float angle)
     {
         Line = lineRenderer;
         Angle = angle;
-        _finalPoint = GameObject.FindObjectOfType<FinalPoint>();
+        _finalPoint = GameObject.FindObjectOfType<Point>();
         RecalculateRay(angle);
     }
 
@@ -30,6 +31,17 @@ public class Lab8_2Behaviour : PhysicBehaviourBase
         Line.SetPositions(points.ToArray());
     }
 
+    private void CheckPoint(Vector3 origin, Vector3 direction, bool applyIfNot = false)
+    {
+        if (_finalPoint is null)
+            _finalPoint = GameObject.FindObjectOfType<Point>(true);
+
+        if (Physics.Raycast(origin, direction, out RaycastHit hit1, 500, 1 << 4))
+            _finalPoint?.SetPointColor(Color.green);
+        else if (applyIfNot)
+            _finalPoint?.SetPointColor(Color.red);
+    }
+
     private void ThrowRay(Vector3 origin, float originRefractionFactor, Vector3 direction, ref List<Vector3> points)
     {
         direction = direction.SetZ(0f);
@@ -37,10 +49,7 @@ public class Lab8_2Behaviour : PhysicBehaviourBase
 
         points.Add(origin);
 
-        if (Physics.Raycast(origin, direction, out RaycastHit hit1, 500, 1 << 4))
-            _finalPoint.SetPointColor(Color.green);
-        else
-            _finalPoint.SetPointColor(Color.red);
+        CheckPoint(origin, direction);
 
         if (Physics.Raycast(origin, direction, out RaycastHit hit, 500, 1)
             && hit.transform.TryGetComponent(out RefractionSurface surface))
@@ -54,6 +63,8 @@ public class Lab8_2Behaviour : PhysicBehaviourBase
                 Vector3 firstNextOrigin = hit.point;
                 Vector3 firstNextDirection =
                     Quaternion.Euler(0f, 0f, -internalNextAngle) * -hit.normal;
+
+                CheckPoint(firstNextOrigin + firstNextDirection * 100f, -firstNextDirection);
 
                 RaycastHit reverseHit = Physics.RaycastAll(firstNextOrigin + firstNextDirection * 100f, -firstNextDirection)
                     .Find(h => h.transform == hit.transform);

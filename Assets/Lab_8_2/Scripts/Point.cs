@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class FinalPoint : MonoBehaviour
+public class Point : MonoBehaviour
 {
     [SerializeField] private MeshRenderer _meshRenderer;
 

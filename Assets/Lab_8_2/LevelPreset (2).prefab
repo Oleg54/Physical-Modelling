@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3399327681476556296}
   - component: {fileID: 5585517934717613968}
   - component: {fileID: 2935157078348159334}
-  - component: {fileID: 1607278512659288100}
+  - component: {fileID: 193230429135041172}
   m_Layer: 4
   m_Name: Point
   m_TagString: Untagged
@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 9b8580b28e75fa24b84205a39aef89c0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -96,7 +96,7 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1607278512659288100
+--- !u!114 &193230429135041172
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -105,9 +105,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 5987491092346122449}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7e3a416c36f906498434f80f056df4e, type: 3}
+  m_Script: {fileID: 11500000, guid: ba7a7a651d478f04a9d1b6819beceac6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _meshRenderer: {fileID: 5585517934717613968}
 --- !u!1 &6037667351605777877
 GameObject:
   m_ObjectHideFlags: 0
